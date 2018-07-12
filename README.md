@@ -15,7 +15,7 @@ Forwards all messages from discord or groupme to the other program through the u
 Note: Make sure you have node installed, if you don't there are numerous tutorials online.
 
 **Discord**
-* Create a discord application at https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme
+* Create a <a href="https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme">discord application</a>
 * Make a bot account for that application. Grab the access token and client ID. Remember these you'll need them later. 
 * Add the bot to your server by replacing CLIENTID in the following link with your bot's client ID: https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot
 
@@ -30,7 +30,7 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
   * The access token can be found by clicking the "access token" button in the top right.
   
 **Installation**
-* Clone files.
+* Clone repository.
 * In command prompt, navigate to the files and run `npm install` to install all dependencies.
 * Open bot.js in your perfered text editor and change:
   * [discord channel id] 
