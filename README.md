@@ -1,4 +1,4 @@
-# discord-groupme-sync
+<p align="center"><img src="https://i.imgur.com/1SQC4LL.jpg"></p>
 Forwards all messages from discord or groupme to the other program through the use of two bots.
 
 ### Requirements
@@ -51,7 +51,8 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
 ### People
 * Lead Developer: [Zohar Singer](https://github.com/z0san)
 * Lead Maintainer: [Luc Harbers](https://github.com/McKlaus)
-* Lead Artist: Siddhant Vasudevan
+* Lead Artist: [Siddhant Vasudevan](https://www.instagram.com/sidduthesquiddu/)
+* Logistics Manager: Alvin Ren
 ### Donations
 * Bitcoin: 1BEnxcJ13RzaJCo9oLHUsLyC9Nup7VsvkT
 * Etherium: 0x0f94299992f6ed67d1ac4d00e3ee582dfa6eb408
