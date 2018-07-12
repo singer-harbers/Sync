@@ -25,7 +25,7 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
 
 **GroupMe**
 * Log in with your <a href="https://dev.groupme.com/session/new">groupme account<a>
-* Click on bots in the top bar, and then click the yellow "create bot" button.
+* Click on bots in the top bar, and then click the orange "create bot" button.
 <p align="left"><img src="https://i.imgur.com/HoB81Jh.png" width=399 height=auto></p>
 
 * Choose the group that you want to be transfering messages from, name the bot, and add an avatar URL if you wish. 
