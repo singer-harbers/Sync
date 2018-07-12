@@ -1,3 +1,9 @@
+//enter your info for discord channel and groupme bot
+var channelID = "[discord channel id]";
+var groupmeGroupId = "[groupme group id]";
+var groupmeToken = "[groupme token]";
+var gruopmeBotId= "[groupme bot id]";
+
 //setting up dependencies
 var request = require('request');
 var Discord = require('discord.io');
@@ -5,12 +11,11 @@ var logger = require('winston');
 var auth = require('./auth.json'); //token for discord bot
 
 //setting up constants
-var channelID = "[discord channel id]";
 var messages = [];
 var lastId = '0';
 
 //url for getting mostrecet messages from groupme
-var ip = "https://api.groupme.com/v3/groups/[groupme group id]/messages?token=[groupme token]";
+var ip = "https://api.groupme.com/v3/groups/groupmeGroupId/messages?token=groupmeToken";
 
 
 //setting up logger
@@ -111,7 +116,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	//preventing bot sending its own messages in a repeating loop
   if(user != "[groupme bot name]"){
     var formData = {
-      "bot_id"  : "[groupme bot id]",
+      "bot_id"  : "gruopmeBotId",
       "text"    : user + ":  " + message
       }
 		//sends a http post request inorder to post the message to groupme
