@@ -38,7 +38,7 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
   * [groupme token]
   * [groupme bot id]
 * Open auth.json in your perfered text editor and change:
- * [discord bot token]
+  * [discord bot token]
 
 **Execution**
 * In command prompt, navigate to the files and run `node bot.js` 
