@@ -28,5 +28,5 @@ Forwards all messages from discord or groupme to the other program through the u
   
 **Installation**
 * Clone files.
-* In command prompt, navigate to files and run npm install
+* In command prompt, navigate to files and run `npm install`
 
