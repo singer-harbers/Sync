@@ -35,7 +35,7 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
 * Clone repository.
 * In command prompt, navigate to the files and run `npm install` to install all dependencies.
 * Open bot.js in your perfered text editor and change:
-  * [discord channel id] I recommend <a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-"> this guide </a>,from discord, to get it
+  * [discord channel id] I recommend <a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-"> this guide</a>,from discord, to get it
   * [groupme group id]
   * [groupme token]
   * [groupme bot id]
@@ -44,4 +44,10 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
 
 **Execution**
 * In command prompt, navigate to the files and run `node bot.js` 
+------------------------------------------------------------------------------------------------------------------------------
+### Donations
+* Bitcoin: 1BEnxcJ13RzaJCo9oLHUsLyC9Nup7VsvkT
+* Etherium: 0x0f94299992f6ed67d1ac4d00e3ee582dfa6eb408
+* Bitcoin Cash: 1Jovp5ychP9E9Hz9QriDMErVs1CDcnDCdd
+
 
