@@ -20,7 +20,7 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
 <p align="left"><img src="https://i.imgur.com/LYRZAqw.png" width 300 height=auto></p>
 
 * Add the bot to your server by replacing CLIENTID in the following link with your bot's client ID: https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot
-<p align="center"><img src="https://i.imgur.com/GTJJlkR.png" width=300 height=auto></p>
+<p align="center"><img src="https://i.imgur.com/6fOfvqC.png" width=300 height=auto></p>
 
 
 **GroupMe**
