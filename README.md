@@ -16,7 +16,7 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
 
 **Discord**
 * Create a <a href="https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme">discord application</a>
-* Make a bot account for that application. Grab the access token and client ID. Remember these you'll need them later.
+* Make a bot account for that application. Make sure to select "Public Bot." Grab the access token and client ID. Remember these you'll need them later.
 <p align="left"><img src="https://i.imgur.com/LYRZAqw.png" width 300 height=auto></p>
 * Add the bot to your server by replacing CLIENTID in the following link with your bot's client ID: https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot
 <p align="center"><img src="https://i.imgur.com/GTJJlkR.png" width=300 height=auto></p>
