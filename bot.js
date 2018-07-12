@@ -3,6 +3,7 @@ var channelID = "[discord channel id]";
 var groupmeGroupId = "[groupme group id]";
 var groupmeToken = "[groupme token]";
 var gruopmeBotId= "[groupme bot id]";
+var groupmeBotName = "[groupme bot name]";
 
 //setting up dependencies
 var request = require('request');
@@ -114,7 +115,7 @@ var postURL = 'https://api.groupme.com/v3/bots/post';
 bot.on('message', function (user, userID, channelID, message, evt) {
   logger.info("message:  " + user + ":  " + message);
 	//preventing bot sending its own messages in a repeating loop
-  if(user != "[groupme bot name]"){
+  if(user != groupmeBotName){
     var formData = {
       "bot_id"  : "gruopmeBotId",
       "text"    : user + ":  " + message
