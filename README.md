@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/1SQC4LL.jpg"></p>
+<p align="center"><img src="https://i.imgur.com/rs3WhTX.jpg"></p>
 Forwards all messages from discord or groupme to the other program through the use of two bots.
 
 ### Requirements
