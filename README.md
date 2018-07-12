@@ -34,7 +34,7 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
   
 **Installation**
 * Clone repository.
-* In command prompt, navigate to the files and run `npm install` to install all dependencies.
+* In cmd/terminal, navigate to the files and run `npm install` to install all dependencies.
 * Open bot.js in your perfered text editor and change:
   * [discord channel id] I recommend <a href="https://support.discordapp.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-"> this guide</a>,from discord, to get it.
   * [discord bot name]
@@ -46,7 +46,7 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
   * [discord bot token]
 
 **Execution**
-* In command prompt, navigate to the files and run `node bot.js` 
+* In cmd/terminal, navigate to the files and run `node bot.js` 
 ------------------------------------------------------------------------------------------------------------------------------
 ### Donations
 * Bitcoin: 1BEnxcJ13RzaJCo9oLHUsLyC9Nup7VsvkT
