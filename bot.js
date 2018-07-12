@@ -32,9 +32,9 @@ request.get({
   if (err) {
     logger.info('upload failed:', err);
   } else {
-    //parse the response 
-		//groupme api responds with 20 most recent messages by default however this can be increased if you 
-		//check less frequently
+//parse the response 
+//groupme api responds with 20 most recent messages by default however this can be increased if you 
+//check less frequently
     var res = JSON.parse(body);
     //stores the id of most resent message inorder to identify new groupme messages
     lastId = res.response.messages[0].id;
@@ -60,43 +60,43 @@ function update(){
     if (err) {
       logger.info('upload failed:', err);
     } else {
-      //parse the response from groupme api
+      	//parse the response from groupme api
       var res = JSON.parse(body);
-			//finding if there are new messages
+	//finding if there are new messages
       if (lastId != res.response.messages[0].id){
         var counter = 0;
-				//while the message being read is not the last message known by the server
+	//while the message being read is not the last message known by the server
         while(res.response.messages[counter].id != lastId){
           counter ++;
         }
 				
-				//all messages need to be added to a list and then the print() function sends all messages in the list to discord
-				//this is because if you send multiple messages at the same time to discord the messages will become mixed up
-				//and some messages may become lost
-				//therefore inorder to prevent this the program is limited to only sending one message every second
-				
-				
-				//runs for every new message
+//all messages need to be added to a list and then the print() function sends all messages in the list to discord
+//this is because if you send multiple messages at the same time to discord the messages will become mixed up
+//and some messages may become lost
+//therefore inorder to prevent this the program is limited to only sending one message every second
+
+
+//runs for every new message
         for(var i = counter -1; i >=0; i --){
-					//finds the name and text of most recent messages
+	//finds the name and text of most recent messages
           var name = res.response.messages[i].name;
           var text = res.response.messages[i].text;
-					//preventing bot reading its own messages causing an infinie loop
+	//preventing bot reading its own messages causing an infinie loop
           if(name != "discordBot"){
-						//adds the text to a list
+	//adds the text to a list
             messages.push(name + ":  " + text);
           }
         }
-				//resets the most recent message known by the server
+	//resets the most recent message known by the server
         lastId = res.response.messages[0].id;
-				//runs the print() function which will send all the messages in the "messages" list at one second intervals
+	//runs the print() function which will send all the messages in the "messages" list at one second intervals
         print();
       }
     }
   });
-	//restarts the function inorder to keep checking in with the groupme api
-	//the time is set to 1s however can be made slower to reduce bandwidth and requests
-	//however if this is set too long you may risk loosing messages if many are sent in a short period of time
+//restarts the function inorder to keep checking in with the groupme api
+//the time is set to 1s however can be made slower to reduce bandwidth and requests
+//however if this is set too long you may risk loosing messages if many are sent in a short period of time
   setTimeout(update, 1000);
 }
 
