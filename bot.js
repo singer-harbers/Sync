@@ -1,16 +1,17 @@
 //setting up dependencies
 var request = require('request');
-var messages = [];
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json'); //token for discord bot
 
 //setting up constants
 var channelID = "[discord channel id]";
+var messages = [];
+var lastId = '0';
 
 //url for getting mostrecet messages from groupme
 var ip = "https://api.groupme.com/v3/groups/[groupme group id]/messages?token=[groupme token]";
-var lastId = '0';
+
 
 //setting up logger
 logger.remove(logger.transports.Console); // ties the logger to the console
