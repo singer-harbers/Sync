@@ -1,4 +1,4 @@
-<blockquote class="imgur-embed-pub" lang="en" data-id="rs3WhTX"><a href="//imgur.com/rs3WhTX">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<p align="center"><img src="https://i.imgur.com/1SQC4LL.jpg"></p>
 Forwards all messages from discord or groupme to the other program through the use of two bots.
 
 ### Requirements
