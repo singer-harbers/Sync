@@ -14,7 +14,7 @@ Forwards all messages from discord or groupme to the other program through the u
 ### Getting Started
 **Discord**
 * Create a discord application at https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme
-* Make a bot account for that application. Grab the access token and client ID. 
+* Make a bot account for that application. Grab the access token and client ID. Remember these you'll need them later. 
 * Add the bot to your server by replacing CLIENTID in the following link with your bot's client ID: https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot
 
 **GroupMe**
@@ -23,7 +23,10 @@ Forwards all messages from discord or groupme to the other program through the u
 <p align="left"><img src="https://i.imgur.com/HoB81Jh.png" width=399 height=auto></p>
 
 * Choose the group that you want to be transfering messages from, name the bot, and add an avatar URL if you wish. 
-* Click on the bot and find the Bot ID, Group ID, and access token. 
+* Click on the bot and find the Bot ID, Group ID, and access token. Remember these you'll need them later. 
   * The access token can be found by clicking the "access token" button in the top right.
-
+  
+**Installation**
+* Clone files.
+* In command prompt, navigate to files and run npm install
 
