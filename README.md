@@ -20,7 +20,7 @@ Forwards all messages from discord or groupme to the other program through the u
 **GroupMe**
 * Log in with your groupeMe account at https://dev.groupme.com/session/new
 * Click on bots in the top bar, and then click the yellow "create bot" button.
-<p align="center"><img src="https://imgur.com/HoB81Jh"></p>
+<p align="center"><img src="https://i.imgur.com/HoB81Jh.png"></p>
 * Choose the group that you want to be transfering messages from, name the bot, and add an avatar URL if you wish. 
 * Click on the bot and find the Bot ID, Group ID, and access token. 
   * The access token can be found by clicking the "access token" button in the top right.
