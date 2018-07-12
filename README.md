@@ -48,6 +48,9 @@ Note: Make sure you have node installed, if you don't you can download it <a hre
 **Execution**
 * In cmd/terminal, navigate to the files and run `node bot.js` 
 ------------------------------------------------------------------------------------------------------------------------------
+### People
+* Lead Developer: [Zohar Singer](https://github.com/z0san)
+* Lead maintainer: [Luc Harbers](https://github.com/McKlaus)
 ### Donations
 * Bitcoin: 1BEnxcJ13RzaJCo9oLHUsLyC9Nup7VsvkT
 * Etherium: 0x0f94299992f6ed67d1ac4d00e3ee582dfa6eb408
