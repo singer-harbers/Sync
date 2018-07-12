@@ -1,0 +1,12 @@
+{
+  "name": "groupMe",
+  "version": "1.0.0",
+  "description": "reads and sends messages from groupme",
+  "main": "bot.js",
+  "author": "Zohar",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "request": "^2.87.0",
+    "winston": "^3.0.0"
+  }
+}
