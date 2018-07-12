@@ -21,7 +21,7 @@ Note: Make sure you have node installed, if you don't there are numerous tutoria
 
 
 **GroupMe**
-* Log in with your groupeMe account at https://dev.groupme.com/session/new
+* Log in with your <a href="https://dev.groupme.com/session/new">groupeMe account<a>
 * Click on bots in the top bar, and then click the yellow "create bot" button.
 <p align="left"><img src="https://i.imgur.com/HoB81Jh.png" width=399 height=auto></p>
 
