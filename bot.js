@@ -83,7 +83,7 @@ function update(){
           var name = res.response.messages[i].name;
           var text = res.response.messages[i].text;
 	//preventing bot reading its own messages causing an infinie loop
-          if(name != "discordBot"){
+          if(name != "[discord bot name]"){
 	//adds the text to a list
             messages.push(name + ":  " + text);
           }
@@ -109,7 +109,7 @@ var postURL = 'https://api.groupme.com/v3/bots/post';
 bot.on('message', function (user, userID, channelID, message, evt) {
   logger.info("message:  " + user + ":  " + message);
 	//preventing bot sending its own messages in a repeating loop
-  if(user != "groupMe"){
+  if(user != "[groupme bot name]"){
     var formData = {
       "bot_id"  : "[groupme bot id]",
       "text"    : user + ":  " + message
