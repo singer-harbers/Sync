@@ -12,10 +12,13 @@ Forwards all messages from discord or groupme to the other program through the u
 * **winston** v3.0.0
 
 ### Getting Started
+Note: Make sure you have node installed, if you don't there are numerous tutorials online.
+
 **Discord**
 * Create a discord application at https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme
 * Make a bot account for that application. Grab the access token and client ID. Remember these you'll need them later. 
 * Add the bot to your server by replacing CLIENTID in the following link with your bot's client ID: https://discordapp.com/oauth2/authorize?client_id=CLIENTID&scope=bot
+
 
 **GroupMe**
 * Log in with your groupeMe account at https://dev.groupme.com/session/new
@@ -28,5 +31,15 @@ Forwards all messages from discord or groupme to the other program through the u
   
 **Installation**
 * Clone files.
-* In command prompt, navigate to files and run `npm install`
+* In command prompt, navigate to the files and run `npm install` to install all dependencies.
+* Open bot.js in your perfered text editor and change:
+  * [discord channel id] 
+  * [groupme group id]
+  * [groupme token]
+  * [groupme bot id]
+* Open auth.json in your perfered text editor and change:
+ * [discord bot token]
+
+**Execution**
+* In command prompt, navigate to the files and run `node bot.js` 
 
