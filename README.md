@@ -12,7 +12,7 @@ Forwards all messages from discord or groupme to the other program through the u
 * **winston** v3.0.0
 
 ### Getting Started
-Note: Make sure you have node installed, if you don't there are numerous tutorials online.
+Note: Make sure you have node installed, if you don't you can download it <a href="https://nodejs.org/en/download/"> here</a>
 
 **Discord**
 * Create a <a href="https://discordapp.com/login?redirect_to=%2Fdevelopers%2Fapplications%2Fme">discord application</a>
