@@ -4,6 +4,7 @@ var groupmeGroupId = "[groupme group id]";
 var groupmeToken = "[groupme token]";
 var gruopmeBotId= "[groupme bot id]";
 var groupmeBotName = "[groupme bot name]";
+var discordBotName = "[discordBotName]";
 
 //setting up dependencies
 var request = require('request');
@@ -89,7 +90,7 @@ function update(){
           var name = res.response.messages[i].name;
           var text = res.response.messages[i].text;
 	//preventing bot reading its own messages causing an infinie loop
-          if(name != "[discord bot name]"){
+          if(name != discordBotName){
 	//adds the text to a list
             messages.push(name + ":  " + text);
           }
@@ -117,7 +118,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	//preventing bot sending its own messages in a repeating loop
   if(user != groupmeBotName){
     var formData = {
-      "bot_id"  : "gruopmeBotId",
+      "bot_id"  : gruopmeBotId,
       "text"    : user + ":  " + message
       }
 		//sends a http post request inorder to post the message to groupme
