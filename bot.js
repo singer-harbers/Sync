@@ -50,6 +50,14 @@ request.get({
     }
 });
 
+//initial connection to the discord api
+bot.on('ready', function (evt) {
+  logger.info('Connected');
+  logger.info('Logged in as: ');
+  logger.info(bot.username + ' – (' + bot.id + ')');
+});
+
+
 //runs continuously inorder to recognise new groupme messages
 function update(){
 	
@@ -118,7 +126,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	//preventing bot sending its own messages in a repeating loop
   if(user != groupmeBotName){
     var formData = {
-      "bot_id"  : gruopmeBotId,
+      "bot_id"  : groupmeBotId,
       "text"    : user + ":  " + message
       }
 		//sends a http post request inorder to post the message to groupme
