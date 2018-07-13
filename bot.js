@@ -2,7 +2,7 @@
 var channelID = "[discord channel id]";
 var groupmeGroupId = "[groupme group id]";
 var groupmeToken = "[groupme token]";
-var gruopmeBotId= "[groupme bot id]";
+var groupmeBotId= "[groupme bot id]";
 var groupmeBotName = "[groupme bot name]";
 var discordBotName = "[discordBotName]";
 
