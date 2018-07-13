@@ -127,7 +127,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   if(user != groupmeBotName){
     var formData = {
       "bot_id"  : groupmeBotId,
-      "text"    : user + ":  " + message
+      "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + message
       }
 		//sends a http post request inorder to post the message to groupme
     request.post({
