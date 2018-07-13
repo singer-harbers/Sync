@@ -17,7 +17,7 @@ var messages = [];
 var lastId = '0';
 
 //url for getting mostrecet messages from groupme
-var ip = "https://api.groupme.com/v3/groups/groupmeGroupId/messages?token=groupmeToken";
+var ip = "https://api.groupme.com/v3/groups/" + groupmeGroupId + "/messages?token=" + groupmeToken;
 
 
 //setting up logger
