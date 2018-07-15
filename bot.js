@@ -27,7 +27,7 @@ logger.add(new logger.transports.Console, {
   colorize: true
 });
 
-logger.level = 'debug'; 
+logger.level = 'debug';
 var bot = new Discord.Client({
   token: auth.token,
   autorun: true
@@ -40,8 +40,8 @@ request.get({
   if (err) {
     logger.info('upload failed:', err);
   } else {
-//parse the response 
-//groupme api responds with 20 most recent messages by default however this can be increased if you 
+//parse the response
+//groupme api responds with 20 most recent messages by default however this can be increased if you
 //check less frequently
     var res = JSON.parse(body);
     //stores the id of most resent message inorder to identify new groupme messages
@@ -57,18 +57,17 @@ bot.on('ready', function (evt) {
   logger.info(bot.username + ' – (' + bot.id + ')');
 });
 
-
 //runs continuously inorder to recognise new groupme messages
 function update(){
-	
-	//connect to the discord api
-	bot.on('ready', function (evt) {
-		logger.info('Connected');
-		logger.info('Logged in as: ');
-		logger.info(bot.username + ' – (' + bot.id + ')');
-	});
 
-	
+	//connect to the discord api
+  bot.on('ready', function (evt) {
+    logger.info('Connected');
+    logger.info('Logged in as: ');
+    logger.info(bot.username + ' – (' + bot.id + ')');
+  });
+
+
   //sends a http get request to groupme api
   request.get({
     url: ip
@@ -79,46 +78,60 @@ function update(){
       	//parse the response from groupme api
       var res = JSON.parse(body);
 	//finding if there are new messages
-	    if(res.response.messages.length > 0){
-	      if (lastId != res.response.messages[0].id){
-		var counter = 0;
-		//while the message being read is not the last message known by the server
-		while(res.response.messages[counter].id != lastId){
-		  counter ++;
-		}
+      if(res.response.messages.length > 0){
+        if (lastId != res.response.messages[0].id){
 
-	//all messages need to be added to a list and then the print() function sends all messages in the list to discord
-	//this is because if you send multiple messages at the same time to discord the messages will become mixed up
-	//and some messages may become lost
-	//therefore inorder to prevent this the program is limited to only sending one message every second
+          var counter = 0;
+  	//while the message being read is not the last message known by the server
+          while(res.response.messages[counter].id != lastId){
+            counter ++;
+          }
+
+  //all messages need to be added to a list and then the print() function sends all messages in the list to discord
+  //this is because if you send multiple messages at the same time to discord the messages will become mixed up
+  //and some messages may become lost
+  //therefore inorder to prevent this the program is limited to only sending one message every second
 
 
-	//runs for every new message
-		for(var i = counter -1; i >=0; i --){
-		//finds the name and text of most recent messages
-		  var name = res.response.messages[i].name;
-		  var text = res.response.messages[i].text;
-			
-		  //finding all the attachments
-		  for(var j = 0; j < res.response.messages[i].attachments.length; j ++){
-		        if(name != discordBotName){
-			  //sending the attachment link
-			  messages.push(name + ":  " + res.response.messages[i].attachments[j].url);
-		        }
-		  }
-		//preventing bot reading its own messages causing an infinie loop and sending blank messages
-		//which may occur if someone sends an attachment without a message
-		  if(name != discordBotName && text){
-		//adds the text to a list
-		    messages.push(name + ":  " + text);
-		  }
-		}
-		//resets the most recent message known by the server
-		lastId = res.response.messages[0].id;
-		//runs the print() function which will send all the messages in the "messages" list at one second intervals
-		print();
-	      }
-	    }
+  //runs for every new message
+          for(var i = counter -1; i >=0; i --){
+  	//finds the name and text of most recent messages
+    //preventing bot reading its own messages causing an infinie loop
+            if(res.response.messages[i].name != discordBotName){
+              var name = res.response.messages[i].name;
+              var text = res.response.messages[i].text;
+
+              //finds weather the message is alread the url of the attachment
+              var sendMes = true;
+              //finding all the attachments
+              for(var j = 0; j < res.response.messages[i].attachments.length; j ++){
+                if(name != discordBotName){
+                  logger.info("sending attachment from " + name + " with url " + res.response.messages[i].attachments[j].url);
+                   //sending the attachment link
+                  messages.push(name + ":  " + res.response.messages[i].attachments[j].url);
+                  //will not send message if it is the same as the attachment url which tends to be true for videos and some other attachments
+                  if(res.response.messages[i].attachments[j].url == text){
+                    sendMes = false;
+                  }
+                }
+              }
+
+
+              logger.debug("message id:  " + res.response.messages[i].id);
+  	//adds the text to a list
+              if(res.response.messages[i].text && sendMes){
+                messages.push(name + ":  " + text);
+              }
+            }
+          }
+
+  	//resets the most recent message known by the server
+          lastId = res.response.messages[0].id;
+  	//runs the print() function which will send all the messages in the "messages" list at one second intervals
+
+          print();
+        }
+      }
     }
   });
 //restarts the function inorder to keep checking in with the groupme api
@@ -159,7 +172,7 @@ setTimeout(update, 5000);
 //lost messages and messages ariving in the wrong order
 function print(){
 
-  logger.info("about to print  " + messages[0]);
+  logger.debug("about to print  " + messages[0]);
 	//while there are still messages to send
   if(messages.length > 0){
 		//using discord api to send messages to specified channel
