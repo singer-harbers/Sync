@@ -97,7 +97,7 @@ function update(){
           for(var i = counter -1; i >=0; i --){
   	//finds the name and text of most recent messages
     //preventing bot reading its own messages causing an infinie loop
-            if(res.response.messages[i].name != discordBotName){
+            if(res.response.messages[i].name != groupmeBotName){
               var name = res.response.messages[i].name;
               var text = res.response.messages[i].text;
 
@@ -105,7 +105,7 @@ function update(){
               var sendMes = true;
               //finding all the attachments
               for(var j = 0; j < res.response.messages[i].attachments.length; j ++){
-                if(name != discordBotName){
+                if(name != groupmeBotName){
                   logger.info("sending attachment from " + name + " with url " + res.response.messages[i].attachments[j].url);
                    //sending the attachment link
                   messages.push(name + ":  " + res.response.messages[i].attachments[j].url);
@@ -148,7 +148,7 @@ var postURL = 'https://api.groupme.com/v3/bots/post';
 bot.on('message', function (user, userID, channelID, message, evt) {
   logger.info("message:  " + user + ":  " + message);
 	//preventing bot sending its own messages in a repeating loop
-  if(user != groupmeBotName){
+  if(user != discordBotName){
     var formData = {
       "bot_id"  : groupmeBotId,
       "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + message
