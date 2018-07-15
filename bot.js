@@ -98,8 +98,17 @@ function update(){
 		//finds the name and text of most recent messages
 		  var name = res.response.messages[i].name;
 		  var text = res.response.messages[i].text;
-		//preventing bot reading its own messages causing an infinie loop
-		  if(name != discordBotName){
+			
+		  //finding all the attachments
+		  for(var j = 0; j < res.response.messages[i].attachments.length; j ++){
+		        if(name != discordBotName){
+			  //sending the attachment link
+			  messages.push(name + ":  " + res.response.messages[i].attachments[j].url);
+		        }
+		  }
+		//preventing bot reading its own messages causing an infinie loop and sending blank messages
+		//which may occur if someone sends an attachment without a message
+		  if(name != discordBotName && text){
 		//adds the text to a list
 		    messages.push(name + ":  " + text);
 		  }
