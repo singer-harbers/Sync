@@ -97,7 +97,7 @@ function update(){
           for(var i = counter -1; i >=0; i --){
   	//finds the name and text of most recent messages
     //preventing bot reading its own messages causing an infinie loop
-            if(res.response.messages[i].name != groupmeBotName){
+            if(res.response.messages[i].name != discordBotName){
               var name = res.response.messages[i].name;
               var text = res.response.messages[i].text;
 
@@ -105,7 +105,7 @@ function update(){
               var sendMes = true;
               //finding all the attachments
               for(var j = 0; j < res.response.messages[i].attachments.length; j ++){
-                if(name != groupmeBotName){
+                if(name != discordBotName){
                   logger.info("sending attachment from " + name + " with url " + res.response.messages[i].attachments[j].url);
                    //sending the attachment link
                   messages.push(name + ":  " + res.response.messages[i].attachments[j].url);
@@ -148,25 +148,46 @@ var postURL = 'https://api.groupme.com/v3/bots/post';
 bot.on('message', function (user, userID, channelID, message, evt) {
   logger.info("message:  " + user + ":  " + message);
 	//preventing bot sending its own messages in a repeating loop
-  if(user != discordBotName){
-    var formData = {
-      "bot_id"  : groupmeBotId,
-      "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + message
-      }
-		//sends a http post request inorder to post the message to groupme
-    request.post({
-      url: postURL,
-      formData: formData
-    }, function optionalCallback(err, httpResponse, body) {
-      if (err) {
-        logger.info('upload failed:', err);
-      }
-    });
+  if(user != groupmeBotName){
+
+    //will run for every attachment sent
+    for(var j = 0; j < evt.d.attachments.length; j++){
+      //sends a form with the user and the attachment url
+      var formData = {
+        "bot_id"  : groupmeBotId,
+        "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + evt.d.attachments[j].proxy_url
+        }
+      //sends a http post request inorder to post the attachment to groupme
+      request.post({
+        url: postURL,
+        formData: formData
+      }, function optionalCallback(err, httpResponse, body) {
+        if (err) {
+          logger.info('upload failed:', err);
+        }
+      });
+    }
+
+    if(message != ""){
+      var formData = {
+        "bot_id"  : groupmeBotId,
+        "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + message
+        }
+  		//sends a http post request inorder to post the message to groupme
+      request.post({
+        url: postURL,
+        formData: formData
+      }, function optionalCallback(err, httpResponse, body) {
+        if (err) {
+          logger.info('upload failed:', err);
+        }
+      });
+    }
   }
 });
 
 //starts the update function loop
-setTimeout(update, 5000);
+setTimeout(update, 1000);
 
 //print function is responsible for sending messages in a controlled way to discord inorder to prevent
 //lost messages and messages ariving in the wrong order
