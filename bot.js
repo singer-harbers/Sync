@@ -78,7 +78,7 @@ function update(){
       	//parse the response from groupme api
       var res = JSON.parse(body);
 	//finding if there are new messages
-      if(res.response.messages.length > 0){
+      if(res.response.messages && res.response.messages.length > 0){
         if (lastId != res.response.messages[0].id){
 
           var counter = 0;
@@ -97,7 +97,7 @@ function update(){
           for(var i = counter -1; i >=0; i --){
   	//finds the name and text of most recent messages
     //preventing bot reading its own messages causing an infinie loop
-            if(res.response.messages[i].name != discordBotName){
+            if(res.response.messages[i].name != discordBotName && res.response.messages[i].text != "undefined"){
               var name = res.response.messages[i].name;
               var text = res.response.messages[i].text;
 
@@ -168,7 +168,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
       });
     }
 
-    if(message != ""){
+    if(message != "" && message != "undefined"){
       var formData = {
         "bot_id"  : groupmeBotId,
         "text"    : bot.servers[bot.channels[channelID].guild_id].members[userID].nick + ":  " + message
@@ -207,3 +207,4 @@ function print(){
     setTimeout(function(){print()}, 1000);
     }
 }
+
